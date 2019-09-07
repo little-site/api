@@ -4,7 +4,7 @@ verify_ssl = true
 name = 'pypi'
 
 [requires]
-python_version = '3.7.1'
+python_version = '3.7.4'
 
 [packages]
 python-slugify = "*"
@@ -16,7 +16,7 @@ Flask = "*"
 Markdown = "*"
 Unidecode = "*"
 Flask-Cors = "*"
-psycopg2 = "*"
+psycopg2-binary = "*"
 flask-sqlalchemy = "*"
 python-dotenv = "*"
 python-twitter = "*"
@@ -25,3 +25,9 @@ colorthief = "*"
 moviepy = "*"
 sentry-sdk = "*"
 blinker = "*"
+google-auth = "*"
+slugify = "*"
+
+[dev-packages]
+pylint = "*"
+flake8 = "*"

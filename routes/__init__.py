@@ -1,19 +1,19 @@
-from routes.posts import (
-    PostsEndpoint,
-    PostEndpoint,
-    PostActionsEndpoint
+from routes.sites import (
+    SitesEndpoint,
+    SitesSiteEndpoint,
+    SitesSitePostsEndpoint
 )
-from routes.root import RootEndpoint
+from routes.posts import PostsPostEndpoint
 from routes.auth import AuthEndpoint
 from routes.media import MediaEndpoint
-
-# Exported dictionary which matches paths to routes for cleaner code organization
+from routes.users import UsersSitesEndpoint
 
 route_dict = {
-    "/": RootEndpoint,
     "/auth/": AuthEndpoint,
-    "/posts/": PostsEndpoint,
-    "/posts/<string:slug_str>/": PostEndpoint,
-    "/posts/<string:slug_str>/<string:action>/": PostActionsEndpoint,
+    "/users/<int:user_id>/sites/": UsersSitesEndpoint,
+    "/sites/": SitesEndpoint,
+    "/sites/<string:site_handle>/": SitesSiteEndpoint,
+    "/sites/<string:site_handle>/posts/": SitesSitePostsEndpoint,
+    "/posts/<string:post_slug>/": PostsPostEndpoint,
     "/media/": MediaEndpoint
 }
