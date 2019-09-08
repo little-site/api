@@ -133,7 +133,7 @@ class SitesSitePostsEndpoint(Resource):
         query = {"site_id": site.id}
 
         if not owns_site:
-            query = {"public": True}
+            query["public"] = True
 
         posts = Post.query.filter_by(**query).order_by(
             desc(Post.date_created)).offset(skip).limit(limit)
