@@ -31,3 +31,4 @@ slugify = "*"
 [dev-packages]
 pylint = "*"
 flake8 = "*"
+pep8 = "*"
