@@ -13,6 +13,7 @@ class AuthToken(Base):
 
     token = db.Column(UUID(as_uuid=True), default=uuid.uuid4, nullable=False, unique=True)
     user_id = db.Column(db.ForeignKey(User.id), nullable=False)
+    expired = db.Column(db.Boolean, nullable=False, default=False)
 
     def __repr__(self):
         return "<Token {}>".format(self.token)

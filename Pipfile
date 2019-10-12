@@ -27,6 +27,8 @@ sentry-sdk = "*"
 blinker = "*"
 google-auth = "*"
 slugify = "*"
+pyjwt = "*"
+cryptography = "*"
 
 [dev-packages]
 pylint = "*"
