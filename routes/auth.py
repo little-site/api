@@ -74,10 +74,11 @@ class AuthEndpoint(Resource):
             is_new_user = False
             user = User.query.filter_by(apple_id=apple_user.id).first()
 
-        # Mark previous tokens expired
-        db.session.query(AuthToken).filter_by(
-            user_id=user.id).update({AuthToken.expired: True})
-        db.session.commit()
+        # # Mark previous tokens expired
+        # TODO: This will expire shortcuts tokens which is bad
+        # db.session.query(AuthToken).filter_by(
+        #     user_id=user.id).update({AuthToken.expired: True})
+        # db.session.commit()
 
         # Send back a new auth token
         new_token = AuthToken(user_id=user.id)
