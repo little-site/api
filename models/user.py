@@ -13,9 +13,7 @@ class User(Base):
 
     email = db.Column(db.String(254), unique=True, nullable=False)
     name = db.Column(db.String())
-    given_name = db.Column(db.String())
-    family_name = db.Column(db.String())
-    google_id = db.Column(db.String())
+    apple_id = db.Column(db.String())
 
     def __repr__(self):
         return "<User {}>".format(self.email)
