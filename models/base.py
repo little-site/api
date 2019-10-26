@@ -7,7 +7,7 @@ import json
 
 def translate_model_data_to_json_safe_data(pg_data):
     if isinstance(pg_data, datetime):
-        pg_data = pg_data.isoformat()
+        pg_data = pg_data.replace(microsecond=0).isoformat()
 
     elif isinstance(pg_data, UUID):
         pg_data = str(pg_data)
