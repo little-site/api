@@ -96,5 +96,9 @@ class AuthEndpoint(Resource):
             new_site = Site(user_id=user.id)
             new_site.set_first_handle(user.name)
             return_payload["site"] = new_site.to_dict()
+        else:
+            # Look up existing site
+            site = Site.query.filter_by(user_id=user.id).first()
+            return_payload["site"] = site.to_dict()
 
         return return_payload, status_code
