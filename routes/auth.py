@@ -19,9 +19,12 @@ class AuthEndpoint(Resource):
         """Base auth test endpoint that will retrieve  a user given a token"""
         # If you get this far in endpoints that have @security(True)
         # Then a Token and a User exist in the kwargs
+        site = Site.query.filter_by(user_id=user.id).first()
+
         return {
             "user": user.to_dict(),
-            "token": token.to_dict()
+            "token": token.to_dict(),
+            "site": site.to_dict()
         }, 200
     
     @json_input(["apple_token", "given_name", "family_name", "name"])
