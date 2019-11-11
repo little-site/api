@@ -19,12 +19,14 @@ class AuthEndpoint(Resource):
         """Base auth test endpoint that will retrieve  a user given a token"""
         # If you get this far in endpoints that have @security(True)
         # Then a Token and a User exist in the kwargs
-        site = Site.query.filter_by(user_id=user.id).first()
+        sites = Site.query.filter_by(user_id=user.id)
 
         return {
             "user": user.to_dict(),
             "token": token.to_dict(),
-            "site": site.to_dict()
+            "sites": list(
+                map(lambda s: s.to_dict(), sites)
+            )
         }, 200
     
     @json_input(["apple_token", "given_name", "family_name", "name"])
@@ -98,10 +100,12 @@ class AuthEndpoint(Resource):
             status_code = 201
             new_site = Site(user_id=user.id)
             new_site.set_first_handle(user.name)
-            return_payload["site"] = new_site.to_dict()
+            return_payload["sites"] = list(new_site.to_dict())
         else:
-            # Look up existing site
-            site = Site.query.filter_by(user_id=user.id).first()
-            return_payload["site"] = site.to_dict()
+            # Look up existing sites
+            sites = Site.query.filter_by(user_id=user.id)
+            return_payload["sites"] = list(
+                map(lambda s: s.to_dict(), sites)
+            )
 
         return return_payload, status_code
