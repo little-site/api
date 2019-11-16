@@ -11,6 +11,7 @@ VALID_PUB_EVENTS = [
 VALID_PRIV_EVENTS = VALID_PUB_EVENTS + [
     "sign in",
     "sign out",
+    "check in"
 ]
 
 ALLOWED_EVENT_FIELDS = [
