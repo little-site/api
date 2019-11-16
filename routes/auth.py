@@ -28,19 +28,21 @@ class AuthEndpoint(Resource):
                 map(lambda s: s.to_dict(), sites)
             )
         }, 200
-    
+
     @json_input(["apple_token", "given_name", "family_name", "name"])
     def post(self, fields, **kwargs):
         """
         This endpoint signs in users with an apple_token field.
 
-        Apple tokens sometimes contain emails (when it's a new user) and otherwise don't
+        Apple tokens sometimes contain emails (when it's a new user) and
+        otherwise don't
+
         "sub" is Apple's user PK
         Name is passed to if it's available and should be treated as optional
-        
+
         If the user's email exists, the existing user object will be returned
         If the user's email does not exist, a new User will be saved
-        
+
         Either way, a new token will be issued
         """
 
@@ -54,7 +56,7 @@ class AuthEndpoint(Resource):
             }, 400
 
         is_new_user = True
-        
+
         if apple_user.full_user:
             # Make a new User
             user = User(

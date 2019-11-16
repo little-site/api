@@ -7,6 +7,7 @@ from routes.posts import PostsPostEndpoint
 from routes.auth import AuthEndpoint
 from routes.media import MediaEndpoint
 from routes.users import UsersSitesEndpoint
+from routes.events import EventsEndpoint
 
 route_dict = {
     "/auth/": AuthEndpoint,
@@ -15,5 +16,6 @@ route_dict = {
     "/sites/<string:site_handle>/": SitesSiteEndpoint,
     "/sites/<string:site_handle>/posts/": SitesSitePostsEndpoint,
     "/posts/<string:post_slug>/": PostsPostEndpoint,
-    "/media/": MediaEndpoint
+    "/media/": MediaEndpoint,
+    "/events/": EventsEndpoint,
 }
