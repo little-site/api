@@ -49,6 +49,19 @@ class EventsEndpoint(Resource):
         if not fields["type"] in valid_types:
             return {"message": INVALID_EVENT_TYPE}, 400
 
+        # Try to add extra, unimportant fields
+        try:
+            event.set_agent_props()
+        except Exception as e:
+            print(e)
+            pass
+
+        try:
+            event.set_ip_address()
+        except Exception as e:
+            print(e)
+            pass
+
         event.save()
 
         return event.to_dict(), 201

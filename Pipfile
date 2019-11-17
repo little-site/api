@@ -29,6 +29,7 @@ google-auth = "*"
 slugify = "*"
 pyjwt = "*"
 cryptography = "*"
+user-agents = "*"
 
 [dev-packages]
 pylint = "*"
