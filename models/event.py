@@ -31,9 +31,9 @@ class Event(Base):
         self.device_family = agent_props.device.family
         self.device_model = agent_props.device.model
         self.os_family = agent_props.os.family
-        self.os_version = agent_props.os.version
+        self.os_version = agent_props.os.version_string
         self.browser_family = agent_props.browser.family
-        self.browser_version = agent_props.browser.version
+        self.browser_version = agent_props.browser.version_string
         self.is_mobile = agent_props.is_mobile
 
     def set_ip_address(self):
