@@ -23,7 +23,7 @@ class Event(Base):
     browser_family = db.Column(db.String)
     browser_version = db.Column(db.String)
     is_mobile = db.Column(db.Boolean)
-    
+
     ip_address = db.Column(db.String)
 
     def set_agent_props(self):
