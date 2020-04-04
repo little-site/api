@@ -1,8 +1,8 @@
 # Set Up
 ```py
 cat .env.example > .env
-pipenv shell
-pipenv install
+pyenv shell
+pip install -r requirements.txt
 flask run
 ```
 
