@@ -21,7 +21,7 @@ Markdown==3.2.1
 MarkupSafe==1.1.1
 moviepy==1.0.2
 numpy==1.18.2
-Pillow==7.1.1
+Pillow==8.1.1
 proglog==0.1.9
 psycopg2-binary==2.8.4
 pycparser==2.20
